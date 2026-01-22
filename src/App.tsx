@@ -2,6 +2,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import styles from "./app.module.css";
 import { getContrats } from "./services/contrats";
 import { ErrorBoundary } from "react-error-boundary";
+import FormContrat from "./features/contrats/FormContrat";
 
 function AppContent() {
   const { data: contrats } = useSuspenseQuery({
@@ -43,6 +44,7 @@ const App = () => {
     <ErrorBoundary FallbackComponent={AppError}>
       {/* <Suspense fallback={<AppLoading />}> */}
       <AppContent />
+      <FormContrat />
       {/* </Suspense> */}
     </ErrorBoundary>
   );

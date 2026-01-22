@@ -2,13 +2,14 @@ import type { PropsWithChildren } from "react";
 import styles from "./button.module.css";
 
 type ButtonProps = PropsWithChildren<{
-  onClick: () => void;
   className?: string;
+  onClick?: () => void;
+  type: "button" | "submit" | "reset";
 }>;
 
-const Button = ({ children, onClick }: ButtonProps) => {
+const Button = ({ children, onClick, type }: ButtonProps) => {
   return (
-    <button onClick={onClick} className={styles.button}>
+    <button onClick={onClick} className={styles.button} type={type}>
       {children}
     </button>
   );

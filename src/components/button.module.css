@@ -2,10 +2,14 @@
   background-color: #b97ac6;
   border: none;
   color: white;
-  padding: 1rem 1.5rem;
+  padding: 0.7rem;
   text-align: center;
   font-size: 1rem;
   margin: 2rem;
   cursor: pointer;
   border-radius: 1rem;
+}
+
+.button:hover {
+  background-color: rgb(114, 10, 72);
 }
