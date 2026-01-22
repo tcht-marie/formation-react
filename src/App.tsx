@@ -1,21 +1,32 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
+import {
+  useMutation,
+  useQueryClient,
+  useSuspenseQuery,
+} from "@tanstack/react-query";
 import styles from "./app.module.css";
-import { getContrats } from "./services/contrats";
+import { createContrat, getContrats } from "./services/contrats";
 import { ErrorBoundary } from "react-error-boundary";
 import FormContrat from "./features/contrats/FormContrat";
 
 function AppContent() {
+  const queryClient = useQueryClient();
+
   const { data: contrats } = useSuspenseQuery({
     queryKey: ["contrats"],
     queryFn: getContrats,
   });
 
-  //if (isLoading) return <div>Loading...</div>;
-
-  //if (error) return <div>Error, sorry</div>;
+  const { mutate: fetchContrat } = useMutation({
+    mutationFn: createContrat,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["contrats"] });
+    },
+  });
 
   return (
     <div className={styles.main}>
+      <FormContrat onSubmit={fetchContrat} />
+
       {contrats?.length === 0 ? (
         <div>No contrats found</div>
       ) : (
@@ -31,8 +42,6 @@ function AppContent() {
   );
 }
 
-// const AppLoading = () => <div>Loading...</div>;
-
 const AppError = ({
   resetErrorBoundary,
 }: {
@@ -42,10 +51,7 @@ const AppError = ({
 const App = () => {
   return (
     <ErrorBoundary FallbackComponent={AppError}>
-      {/* <Suspense fallback={<AppLoading />}> */}
       <AppContent />
-      <FormContrat />
-      {/* </Suspense> */}
     </ErrorBoundary>
   );
 };

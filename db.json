@@ -23,6 +23,18 @@
       "title": "VAM",
       "username": "Margaret Artwood",
       "description": "Assurance véhicule deux roues"
+    },
+    {
+      "title": "Habitation",
+      "username": "Anna Gavalda",
+      "description": "Assurance habitation pour un appartement T4",
+      "id": 5
+    },
+    {
+      "title": "Santé",
+      "username": "Simone Veil",
+      "description": "Assurance corporelle",
+      "id": 6
     }
   ]
 }

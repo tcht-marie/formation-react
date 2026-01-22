@@ -1,6 +1,6 @@
 export type Contrat = {
   id: number;
-  title: string;
+  title: "Habitation" | "VAM" | "Santé";
   username: string;
   description: string;
 };
