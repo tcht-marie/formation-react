@@ -3,11 +3,11 @@ import {
   useQueryClient,
   useSuspenseQuery,
 } from "@tanstack/react-query";
-import styles from "./app.module.css";
-import { createContrat, getContrats } from "./services/contrats";
+import styles from "./contrats.module.css";
+import { createContrat, getContrats } from "../services/contrats";
 import { ErrorBoundary } from "react-error-boundary";
-import FormContrat from "./features/contrats/FormContrat";
-import type { Contrat } from "./types";
+import FormContrat from "../features/contrats/FormContrat";
+import type { Contrat } from "../types";
 
 function AppContent() {
   const queryClient = useQueryClient();
