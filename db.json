@@ -35,6 +35,18 @@
       "username": "Simone Veil",
       "description": "Assurance corporelle",
       "id": 6
+    },
+    {
+      "title": "VAM",
+      "username": "Virginie Despentes",
+      "description": "Assurance véhicule tous risques",
+      "id": 7
+    },
+    {
+      "title": "VAM",
+      "username": "Monsieur Doudou",
+      "description": "Assurance grosse moto pour emmener Madame Doudou en weekend :)",
+      "id": 8
     }
   ]
 }

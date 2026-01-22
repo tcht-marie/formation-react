@@ -7,6 +7,7 @@ import styles from "./app.module.css";
 import { createContrat, getContrats } from "./services/contrats";
 import { ErrorBoundary } from "react-error-boundary";
 import FormContrat from "./features/contrats/FormContrat";
+import type { Contrat } from "./types";
 
 function AppContent() {
   const queryClient = useQueryClient();
@@ -18,8 +19,11 @@ function AppContent() {
 
   const { mutate: fetchContrat } = useMutation({
     mutationFn: createContrat,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["contrats"] });
+    onSuccess: (newContrat) => {
+      queryClient.setQueryData(["contrats"], (prev: Contrat[]) => [
+        ...prev,
+        newContrat,
+      ]);
     },
   });
 
