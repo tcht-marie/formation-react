@@ -1,0 +1,28 @@
+{
+  "contrats": [
+    {
+      "id": 1,
+      "title": "Habitation",
+      "username": "Jane Austin",
+      "description": "Assurance habitation pour maison individuelle"
+    },
+    {
+      "id": 2,
+      "title": "VAM",
+      "username": "Colette",
+      "description": "Assurance véhicule tous risques"
+    },
+    {
+      "id": 3,
+      "title": "Santé",
+      "username": "George Sand",
+      "description": "Assurance santé complémentaire"
+    },
+    {
+      "id": 4,
+      "title": "VAM",
+      "username": "Margaret Artwood",
+      "description": "Assurance véhicule deux roues"
+    }
+  ]
+}

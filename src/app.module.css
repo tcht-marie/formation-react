@@ -1,0 +1,19 @@
+.main {
+  max-width: 50rem;
+}
+
+.container {
+  border: solid rgb(114, 10, 72);
+  padding: 1rem;
+  margin: 1rem 2rem;
+}
+
+.username {
+  color: rgb(114, 10, 72);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.title {
+  padding: 0.5rem 0;
+}
