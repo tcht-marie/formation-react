@@ -25,3 +25,8 @@ export const updateContrat = (contrat: Contrat) =>
     },
     body: JSON.stringify(contrat),
   });
+
+export const deleteContrat = (id: string) =>
+  myFetch<void>(`/contrats/${id}`, {
+    method: "DELETE",
+  });

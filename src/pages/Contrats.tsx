@@ -4,7 +4,11 @@ import {
   useSuspenseQuery,
 } from "@tanstack/react-query";
 import styles from "./contrats.module.css";
-import { createContrat, getContrats } from "../services/contrats";
+import {
+  createContrat,
+  deleteContrat,
+  getContrats,
+} from "../services/contrats";
 import { ErrorBoundary } from "react-error-boundary";
 import FormContrat from "../features/contrats/FormContrat";
 import type { Contrat } from "../types";
@@ -29,6 +33,15 @@ function AppContent() {
     },
   });
 
+  const { mutate: fetchDeleteContrat } = useMutation({
+    mutationFn: deleteContrat,
+    onSuccess: (_, id) => {
+      queryClient.setQueryData(["contrats"], (prev: Contrat[]) =>
+        prev.filter((contrat) => contrat.id !== id),
+      );
+    },
+  });
+
   return (
     <div className={styles.main}>
       <FormContrat onSubmit={fetchContrat} />
@@ -47,6 +60,12 @@ function AppContent() {
               <Link to={`/contrats/edit/${contrat.id}`}>
                 <Button type="button">Edit</Button>
               </Link>
+              <Button
+                type="button"
+                onClick={() => fetchDeleteContrat(contrat.id)}
+              >
+                Delete
+              </Button>
             </div>
           </div>
         ))

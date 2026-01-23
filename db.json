@@ -1,18 +1,6 @@
 {
   "contrats": [
     {
-      "title": "Habitation",
-      "username": "Jane Austin",
-      "description": "Assurance habitation pour une résidence principale : château en Angleterre",
-      "id": 1
-    },
-    {
-      "id": 2,
-      "title": "VAM",
-      "username": "Colette",
-      "description": "Assurance véhicule tous risques"
-    },
-    {
       "id": 3,
       "title": "Santé",
       "username": "George Sand",
@@ -38,15 +26,15 @@
     },
     {
       "title": "VAM",
-      "username": "Virginie Despentes",
-      "description": "Assurance véhicule tous risques",
-      "id": 7
-    },
-    {
-      "title": "VAM",
       "username": "Monsieur Doudou",
       "description": "Assurance grosse moto pour emmener Madame Doudou en weekend :)",
       "id": 8
+    },
+    {
+      "title": "Habitation",
+      "username": "Jane Austin",
+      "description": "Assurance",
+      "id": 9
     }
   ]
 }
