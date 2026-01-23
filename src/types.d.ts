@@ -1,5 +1,5 @@
 export type Contrat = {
-  id: number;
+  id: string;
   title: "Habitation" | "VAM" | "Santé";
   username: string;
   description: string;

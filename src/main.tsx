@@ -5,6 +5,7 @@ import App from "./pages/Contrats.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ErrorBoundary } from "react-error-boundary";
 import { createBrowserRouter, RouterProvider } from "react-router";
+import Edit from "./pages/Edit.tsx";
 
 const queryClient = new QueryClient();
 
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/contrats/edit/:id",
+    element: <Edit />,
   },
 ]);
 

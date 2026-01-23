@@ -5,17 +5,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ContratSchema } from "./FormContratSchema";
 import styles from "./form.module.css";
 
-const FormContrat = ({
-  onSubmit,
-}: {
-  onSubmit: (e: Omit<Contrat, "id">) => void;
-}) => {
+type FormContratProps = {
+  onSubmit: (e: Omit<Contrat, "id"> | Contrat) => void;
+  initialContrat?: Contrat;
+};
+
+const FormContrat = ({ onSubmit, initialContrat }: FormContratProps) => {
   const form = useForm<Omit<Contrat, "id">>({
     resolver: zodResolver(ContratSchema),
     defaultValues: {
-      title: "Habitation",
-      username: "",
-      description: "",
+      title: initialContrat?.title ?? "Habitation",
+      username: initialContrat?.username ?? "",
+      description: initialContrat?.description ?? "",
     },
   });
 
@@ -31,6 +32,7 @@ const FormContrat = ({
       <label className={styles.label}>
         Title
         <select
+          defaultValue={initialContrat?.title}
           {...form.register("title", { required: true })}
           className={`${styles.input} ${styles.select}`}
         >
@@ -43,6 +45,7 @@ const FormContrat = ({
       <label className={`${styles.label}`}>
         Username
         <input
+          defaultValue={initialContrat?.username}
           {...form.register("username", { required: true })}
           className={styles.input}
         />
@@ -53,6 +56,7 @@ const FormContrat = ({
       <label className={styles.label}>
         Description
         <textarea
+          defaultValue={initialContrat?.description}
           {...form.register("description", { required: true })}
           className={styles.input}
         />

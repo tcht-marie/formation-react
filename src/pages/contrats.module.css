@@ -6,6 +6,8 @@
   border: solid rgb(114, 10, 72);
   padding: 1rem;
   margin: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .username {

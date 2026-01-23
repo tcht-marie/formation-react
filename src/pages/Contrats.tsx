@@ -8,6 +8,8 @@ import { createContrat, getContrats } from "../services/contrats";
 import { ErrorBoundary } from "react-error-boundary";
 import FormContrat from "../features/contrats/FormContrat";
 import type { Contrat } from "../types";
+import { Link } from "react-router";
+import Button from "../components/Button";
 
 function AppContent() {
   const queryClient = useQueryClient();
@@ -35,10 +37,17 @@ function AppContent() {
         <div>No contrats found</div>
       ) : (
         contrats?.map((contrat) => (
-          <div key={contrat.username} className={styles.container}>
-            <h2 className={styles.username}>{contrat.username}</h2>
-            <p className={styles.title}>Contrat : {contrat.title}</p>
-            <p className={styles.description}>{contrat.description}</p>
+          <div key={contrat.id} className={styles.container}>
+            <div>
+              <h2 className={styles.username}>{contrat.username}</h2>
+              <p className={styles.title}>Contrat : {contrat.title}</p>
+              <p className={styles.description}>{contrat.description}</p>
+            </div>
+            <div>
+              <Link to={`/contrats/edit/${contrat.id}`}>
+                <Button type="button">Edit</Button>
+              </Link>
+            </div>
           </div>
         ))
       )}
